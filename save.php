@@ -11,13 +11,14 @@ if (!$conn) {
 }
 
 // Run only when form is submitted
+
 if (isset($_POST['submit'])) {
 
     $userName    = trim($_POST['name']);
     $userEmail   = trim($_POST['email']);
     $userMessage = trim($_POST['message']);
 
-    // Basic server-side validation
+    //  server-side validation
     if ($userName === "" || $userEmail === "" || $userMessage === "") {
         $_SESSION['error'] = "Please fill all required fields.";
         header("Location: index.php");
