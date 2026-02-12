@@ -25,13 +25,38 @@ window.addEventListener("scroll", () => {
 
 
 
-/* mobile menu toggle */
-const btn = document.getElementById('menu-btn');
-const menu = document.getElementById('mobile-menu');
 
-btn.addEventListener('click', () => {
-  menu.classList.toggle('hidden');
+/* MENU TOGGLE */
+const btn = document.getElementById("menu-btn");
+const mobileMenu = document.getElementById("mobile_menu");
+
+btn.addEventListener("click", ()=>{
+ mobileMenu.classList.toggle("show");
 });
+
+/* CLOSE ON LINK CLICK */
+document.querySelectorAll("#mobile_menu a").forEach(link=>{
+ link.addEventListener("click", ()=>{
+  mobileMenu.classList.remove("show");
+ });
+});
+
+/* CLOSE ON SCROLL */
+window.addEventListener("scroll", ()=>{
+ mobileMenu.classList.remove("show");
+});
+
+/* SHRINK NAVBAR */
+const navbar = document.getElementById("navbar");
+
+window.addEventListener("scroll", ()=>{
+ if(window.scrollY>40){
+   navbar.classList.add("scrolled");
+ }else{
+   navbar.classList.remove("scrolled");
+ }
+});
+
 
 
 
