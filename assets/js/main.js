@@ -94,3 +94,17 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 //*** SELECTED PROJECT SECTION JS END ***//
+
+
+/* MOBILE TAP HOVER EFFECT */
+document.querySelectorAll(".tap-hover").forEach(card => {
+
+  card.addEventListener("touchstart", () => {
+    card.classList.add("tap-active");
+  });
+
+  card.addEventListener("touchend", () => {
+    setTimeout(() => card.classList.remove("tap-active"), 180);
+  });
+
+});

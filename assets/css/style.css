@@ -713,6 +713,7 @@
 
 
 
+/***GLOBAL CSS ***/
 
 /*** Subtle card depth refinement  ***/
 .about-card,
@@ -775,4 +776,13 @@
 .contact-card:hover::after {
   opacity: 0.28;
   filter: blur(16px);
+}
+
+/* MOBILE TAP HOVER SUPPORT */
+.tap-hover {
+  transition: transform .35s ease, box-shadow .35s ease;
+}
+
+.tap-hover.tap-active {
+  transform: translateY(-10px);
 }
