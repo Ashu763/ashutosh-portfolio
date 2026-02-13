@@ -1,65 +1,51 @@
 //*** NAVBAR JS ***//
-
-//* navbar active link on scroll *//
-
-const sections = document.querySelectorAll("section");
-const navLinks = document.querySelectorAll(".nav-link");
-
-window.addEventListener("scroll", () => {
-  let current = "";
-
-  sections.forEach((section) => {
-    const sectionTop = section.offsetTop - 120;
-    if (window.scrollY >= sectionTop) {
-      current = section.getAttribute("id");
-    }
-  });
-
-  navLinks.forEach((link) => {
-    link.classList.remove("active");
-    if (link.getAttribute("href") === `#${current}`) {
-      link.classList.add("active");
-    }
-  });
-});
-
-
-
-
-/* MENU TOGGLE */
-const btn = document.getElementById("menu-btn");
-const mobileMenu = document.getElementById("mobile_menu");
-
-btn.addEventListener("click", ()=>{
- mobileMenu.classList.toggle("show");
-});
-
-/* CLOSE ON LINK CLICK */
-document.querySelectorAll("#mobile_menu a").forEach(link=>{
- link.addEventListener("click", ()=>{
-  mobileMenu.classList.remove("show");
- });
-});
-
-/* CLOSE ON SCROLL */
-window.addEventListener("scroll", ()=>{
- mobileMenu.classList.remove("show");
-});
-
-/* SHRINK NAVBAR */
+ 
 const navbar = document.getElementById("navbar");
+const toggle = document.getElementById("menu-toggle");
+const navLinksBox = document.getElementById("nav-links");
 
-window.addEventListener("scroll", ()=>{
- if(window.scrollY>40){
+/* hamburger toggle */
+toggle.addEventListener("click", () => {
+ navLinksBox.classList.toggle("open");
+});
+
+/* CLOSE on scroll */
+window.addEventListener("scroll", () => {
+
+ navLinksBox.classList.remove("open");
+
+ /* shrink navbar */
+ if(window.scrollY > 40){
    navbar.classList.add("scrolled");
- }else{
+ } else {
    navbar.classList.remove("scrolled");
  }
+
 });
 
+/* active link highlight */
+const sections = document.querySelectorAll("section");
+const links = document.querySelectorAll(".nav-link");
 
+window.addEventListener("scroll", () => {
 
+ let current = "";
 
+ sections.forEach(section=>{
+  const sectionTop = section.offsetTop - 120;
+  if(scrollY >= sectionTop){
+    current = section.getAttribute("id");
+  }
+ });
+
+ links.forEach(link=>{
+  link.classList.remove("active");
+  if(link.getAttribute("href") === `#${current}`){
+   link.classList.add("active");
+  }
+ });
+
+});
 //*** NAVBAR JS END ***//
 
 
